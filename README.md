@@ -39,5 +39,3 @@ For this to run you will need:
 Python3 (e.g., Anaconda Python) with following packages: numpy, pandas, matplotlib, scipy
 
 You would also need the pdfGetX3 package installed (http://www.diffpy.org/products/pdfgetx3.html).
-
-

@@ -1,16 +1,17 @@
 """module to provide helper functions needed for mapPDF"""
 
 import os
-import scipy
+
+import matplotlib as mpl
 import numpy as np
 import pandas as pd
-import matplotlib as mpl
+import scipy
+from diffpy.pdfgetx.pdfconfig import PDFConfig
+from diffpy.pdfgetx.pdfgetter import PDFGetter
 from scipy.stats import pearsonr
 
 # import seaborn.apionly as sns
 
-from diffpy.pdfgetx.pdfgetter import PDFGetter
-from diffpy.pdfgetx.pdfconfig import PDFConfig
 
 
 def process_chi_df(df, pdf_parameters, background=None, iq_pearson_data=None, gr_pearson_data=None):
