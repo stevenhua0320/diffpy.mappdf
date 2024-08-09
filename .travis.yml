@@ -34,7 +34,7 @@ before_install:
 
 install:
   - export GIT_FULL_HASH=`git rev-parse HEAD`
-  - conda create -n testenv nose python=$TRAVIS_PYTHON_VERSION scipy scikit-beam pytest coverage pip xlrd flake8 codecov ipython -c conda-forge 
+  - conda create -n testenv nose python=$TRAVIS_PYTHON_VERSION scipy scikit-beam pytest coverage pip xlrd flake8 codecov ipython -c conda-forge
   - source activate testenv
   - 'pip install https://github.com/diffpy/mappdf/zipball/master#egg=mappdf'
   - pip install .
