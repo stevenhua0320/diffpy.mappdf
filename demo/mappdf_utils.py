@@ -5,13 +5,12 @@ import os
 import matplotlib as mpl
 import numpy as np
 import pandas as pd
-import scipy
+import seaborn as sns
 from diffpy.pdfgetx.pdfconfig import PDFConfig
 from diffpy.pdfgetx.pdfgetter import PDFGetter
 from scipy.stats import pearsonr
 
 # import seaborn.apionly as sns
-
 
 
 def process_chi_df(df, pdf_parameters, background=None, iq_pearson_data=None, gr_pearson_data=None):
@@ -63,7 +62,7 @@ def mappdf_load_chi(csv_file, qoi_columns=None, root=""):
         try:
             q, iq = np.loadtxt(fn).T
         # TODO: limit scope
-        except:
+        except ValueError:
             q, iq = np.loadtxt(fn, skiprows=4).T
         qs.append(q)
         iqs.append(iq)
@@ -81,7 +80,7 @@ def load_chi(lib_dir):
         fn = os.path.join(lib_dir, chi)
         try:
             array = np.loadtxt(fn).T  # pyFAI
-        except:
+        except ValueError:
             array = np.loadtxt(fn, skiprows=4).T  # fit2D
         Q, Iq = array
         Iq_list.append(Iq)
@@ -176,7 +175,7 @@ def bSeabornStyle(
     ticks=False, cycle="simon", context="notebook", f_scale=1, a_scale=1, l_width=1, m_size=1, xt_col="black"
 ):
     sns.reset_orig()
-    if ticks == False:
+    if ticks is False:
         sns.set_style("whitegrid")
     else:
         sns.set_style("ticks")
